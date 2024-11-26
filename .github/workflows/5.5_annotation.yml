@@ -1,0 +1,13 @@
+# 5.5 アノテーションへの出力
+
+name: Annotation
+
+on: push
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "::error::This is an error"
+      - run: echo "::warning::This is a warning"
+      - run: echo "::notic::This is a notice"

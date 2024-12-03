@@ -1,0 +1,14 @@
+# 5.2 Bashのトレーシングオプションを有効化
+
+name: Bash tracing
+
+on: push
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - run: | # Bashのトレーシングオプションを有効化し、実行したコマンドをログ出力
+          set -x
+          date
+          hostname

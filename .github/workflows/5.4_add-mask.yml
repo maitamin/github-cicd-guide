@@ -1,0 +1,14 @@
+# 5.4 ログの手動マスク
+
+name: Add mask
+
+on: push
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    env:
+      PASSWORD: SuperSecretValue
+    steps:
+      - run: echo "::add-mask::${PASSWORD}"
+      - run: echo "${PASSWORD}"

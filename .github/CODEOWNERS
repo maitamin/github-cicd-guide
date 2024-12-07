@@ -1,1 +1,9 @@
+# 7.2 リポジトリ全体のコードオーナーを設定（マッチする設定がない場合のフォールバック先）
+# 最後にマッチした定義を優先する
 * @maitamin
+
+# 特定のファイル種別のみコードオーナーをTeamに設定する
+*.txt @example-org/maitamin-team
+
+# 特定のディレクトリ配下のコードオーナーを、複数アカウントへ設定する
+.github/workflow/ @github @example-org/maitamin

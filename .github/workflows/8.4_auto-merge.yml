@@ -15,4 +15,10 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-      - run: gh pr merge "${GITHUB_HEAD_REF}" --merge
+      # ワークフロー内で承認もする
+      # リポジトリのsettings > Actions > GeneralでAllow GitHub Actions to create and approve pull requestsを有効にする必要がある
+      # autoの設定をすると他のワークフローの完了を待って、全てのステータスチェックが成功に変わったタイミングで自動的にマージしてくれる
+      # リポジトリのsettingsからAllow auto-mergeを有効にする必要がある
+      - run: |
+          gh pr review "${GITHUB_HEAD_REF}" --approve
+          gh pr merge "${GITHUB_HEAD_REF}" --merge --auto

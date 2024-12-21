@@ -1,0 +1,16 @@
+# 9.1 リリースノート設定ファイル
+# 9.2 リリースノートの除外設定
+changelog:
+  categories: # リリースノートのカテゴリ設定
+    - title: Enhancement # リリースノートへ Enhancement というカテゴリを作成する
+      labels:
+        - enhancement # Enhancement へ掲載するプルリクエストのラベルを指定する
+    - title: Bug Fixes
+      labels: # プルリクエストのラベルは複数指定できる
+        - bug
+        - fixes
+  exclude:
+    labels: # 除外するプルリクエスト作成者
+      - dependencies
+    authors:
+      - dependabot
